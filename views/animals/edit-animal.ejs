@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Animal</title>
+    <link rel="stylesheet" href="/css/styles.css"> 
+</head>
+<body>
+    <h1>Edit Animal</h1>
+    <form action="/animals/update/{{animal._id}}" method="POST">
+        <div>
+            <label for="zoo">Zoo:</label>
+            <input type="text" id="zoo" name="zoo" required value="{{animal.zoo}}">
+        </div>
+        <div>
+            <label for="scientificName">Scientific Name:</label>
+            <input type="text" id="scientificName" name="scientificName" required value="{{animal.scientificName}}">
+        </div>
+        <div>
+            <label for="commonName">Common Name:</label>
+            <input type="text" id="commonName" name="commonName" required value="{{animal.commonName}}">
+        </div>
+        <div>
+            <label for="givenName">Given Name:</label>
+            <input type="text" id="givenName" name="givenName" required value="{{animal.givenName}}">
+        </div>
+        <div>
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="Male" {{#if (eq animal.gender 'Male')}}selected{{/if}}>Male</option>
+                <option value="Female" {{#if (eq animal.gender 'Female')}}selected{{/if}}>Female</option>
+            </select>
+        </div>
+        <div>
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" required value="{{formatDate animal.dateOfBirth}}">
+        </div>
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required value="{{animal.age}}">
+        </div>
+        <div>
+            <label for="isTransportable">Is Transportable:</label>
+            <input type="checkbox" id="isTransportable" name="isTransportable" {{#if animal.isTransportable}}checked{{/if}}>
+        </div>
+        <button type="submit">Update Animal Record</button>
+    </form>
+    <form action="/animals/delete/{{animal._id}}" method="POST">
+        <button type="submit">Delete Record</button>
+    </form>
+</body>
+</html>

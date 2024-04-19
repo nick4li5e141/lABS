@@ -1,0 +1,24 @@
+{
+  "name": "lab4-nick",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.2.3",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "mongoose": "^7.6.11",
+    "nodemon": "^3.1.0",
+    "passport": "^0.6.0",
+    "path": "^0.12.7"
+  },
+  "author": "Nick",
+  "license": "ISC"
+}

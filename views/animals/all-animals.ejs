@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Animals</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('../partials/_navbar.ejs') %>
+    <div class="container mt-4">
+        <h1>All Animals</h1>
+        <% animals.forEach(function(animal) { %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title"><%= animal.commonName %></h5>
+                    <p class="card-text"><strong>Zoo:</strong> <%= animal.zoo %></p>
+                    <p class="card-text"><strong>Scientific Name:</strong> <%= animal.scientificName %></p>
+                    <p class="card-text"><strong>Common Name:</strong> <%= animal.commonName %></p>
+                    <p class="card-text"><strong>Given Name:</strong> <%= animal.givenName %></p>
+                    <p class="card-text"><strong>Gender:</strong> <%= animal.gender %></p>
+                    <p class="card-text"><strong>Date of Birth:</strong> <%= animal.dateOfBirth.toISOString().split('T')[0] %></p>
+                    <p class="card-text"><strong>Age:</strong> <%= animal.age %></p>
+                    <p class="card-text"><strong>Transportability:</strong> <%= animal.isTransportable ? 'AVAILABLE' : 'UNAVAILABLE' %></p>
+                    <a href="/animals/edit/<%= animal._id %>" class="btn btn-primary">Edit Animal Details</a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
